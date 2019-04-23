@@ -7,8 +7,6 @@ export default class Stack {
 
   push(value) {
     this.linkedList.append(value)
-
-    return this
   }
 
   pop() {

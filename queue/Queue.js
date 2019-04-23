@@ -7,8 +7,6 @@ export default class Queue {
 
   enqueue(value) {
     this.linkedList.append(value)
-
-    return this
   }
 
   dequeue() {
