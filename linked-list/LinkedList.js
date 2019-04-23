@@ -38,20 +38,69 @@ export default class LinkedList {
     return this
   }
 
-  delete() {
+  delete(value) {
 
   }
 
   deleteHead() {
+    if (!this.head) {
+      return null
+    }
 
+    const deletedNode = this.head
+    
+    if (this.head.next) {
+      this.head = this.head.next
+    } else {
+      this.head = null 
+      this.tail = null
+    }
+
+    return deletedNode
   }
 
   deleteTail() {
+    const deletedNode = this.tail 
 
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+
+      return deletedNode;
+    }
+
+    let currentNode = this.head 
+
+    while (currentNode.next) {
+      if (!currentNode.next.next) {
+        currentNode.next = null
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+    
+    this.tail = currentNode
+
+    return deletedNode
   }
 
   reverse() {
-    
+    let prevNode = null
+    let nextNode = null 
+    let currentNode = this.head 
+
+    while (currentNode) {
+      nextNode = currentNode.next 
+      currentNode.next = prevNode
+
+      prevNode = currentNode
+      currentNode = nextNode
+    }
+
+    this.tail = this.head 
+    this.head = prevNode
+
+    return this
   }
 
   find(value) {
@@ -59,14 +108,14 @@ export default class LinkedList {
       return null
     }
 
-    let currentNode = this.head 
+    let node = this.head 
 
-    while (currentNode) {
-      if (currentNode.value === value) {
-        return currentNode
+    while (node) {
+      if (node.value === value) {
+        return node
       }
 
-      currentNode = currentNode.next
+      node = node.next
     }
 
     return null
@@ -74,11 +123,11 @@ export default class LinkedList {
 
   toArray() {
     const nodes = []
-    let currentNode = this.head
+    let node = this.head
 
-    while (currentNode) {
-      nodes.push(currentNode)
-      currentNode = currentNode.next
+    while (node) {
+      nodes.push(node)
+      node = node.next
     }
 
     return nodes
