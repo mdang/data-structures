@@ -39,7 +39,7 @@ export default class LinkedList {
   }
 
   delete(value) {
-
+    
   }
 
   deleteHead() {
