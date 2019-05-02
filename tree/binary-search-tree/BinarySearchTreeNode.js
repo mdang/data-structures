@@ -63,6 +63,6 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
   }
 
   contains(value) {
-
+    return !!this.find(value)
   }
 }
