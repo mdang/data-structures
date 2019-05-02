@@ -41,7 +41,25 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
   }
 
   find(value) {
+    if (value === this.value) {
+      return this.value
+    }
 
+    if (value < this.value) {
+      // search left 
+      if (this.left) {
+        return this.left.find(value)
+      }
+    }
+
+    if (value > this.value) {
+      // search right 
+      if (this.right) {
+        return this.right.find(value)
+      }
+    }
+
+    return null
   }
 
   contains(value) {

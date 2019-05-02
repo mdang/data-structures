@@ -79,6 +79,6 @@ describe('BinarySearchTreeNode', () => {
 
     expect(node.find(6)).toBeNull();
     expect(node.find(5)).not.toBeNull();
-    expect(node.find(5).value).toBe(5);
+    expect(node.find(5)).toBe(5);
   });
 });
